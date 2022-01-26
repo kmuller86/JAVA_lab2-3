@@ -2,42 +2,81 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static int[] tablica;
+
     public static void main(String[] args) {
 
-        /* ćw.2 pętle for */
+        /* ćwiczenie 3 switch case */
 
-        /* zad.1 Napisz program który będzie iterował od 100 do 0,
-         *  i wyświetlał liczby które są podzielne przez ostatnią cyfrę waszego indeksu
-         * (jesli tą liczbą jest 0 to przez 2 ostatnie) */
-        System.out.println("Zadanie 1: ");
+        /* zad.1 napisać program który przyjmuje jedną liczbę od użytkownika z klawiatury
+          i za pomocą switch case default ma określić czy:
+          a) ta liczba jest parzysta --> podpowiedz switch(a % 2) {
+          b) program który określi czy liczba jest podzielna przez 7
+         */
+        System.out.println("Zadanie 1: \n");
 
-        int ostatniaCyfraIndexu =5;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Podaj liczbę");
+        int liczba = scan.nextInt();
 
-        for (int i= 100; i>0; i--)
+        switch(liczba%2)
         {
-            System.out.print(i%ostatniaCyfraIndexu==0 ? "\nLiczba " + i + " jest podzielna przez ostatnią cyfrę indexu (czyli 5)" : "");
+            case 0:
+                System.out.println("Liczba jest parzysta");
+                break;
+            default:
+                System.out.println("Liczba jest NIE parzysta");
+        }
+        switch(liczba%7)
+        {
+            case 0:
+                System.out.println("Liczba jest podzielna przez 7");
+                break;
+            default:
+                System.out.println("Liczba NIE jest podzielna przez 7");
         }
 
-        /* zad.2 Napisz program który będzie uzupełniał tablicę 5-cio elementową int[] liczbami
-         * wprowadzanymi z klawiatury (użyć klasy Scanner), a następnie będzie wyświetlał elementy tablicy
-         * za pomocą pętli forEach powiększone o 11 */
+        /* zad.2
+           a) napisać program podobny do programu z przykładu, który ma zliczyć iloś liter 'o', 'p', 'x', 'z', 'q' w wyrazie:
+            "ooooozjoonoxoooozoooooooooozoxooooopnpppoooiiooooomnzooooxoqoojoozoootyoooozoooxoooozooooxooooooojoooopxoooonnmooo"
+           b) oraz ma określić ile jest pozostałych liter, które nie należą do: 'o', 'p', 'x', 'z', 'q'
+         */
+        System.out.println("\nZadanie 2: \n");
 
-        System.out.println("\n\nZadanie 2: ");
-
-        Scanner scan  = new Scanner(System.in);
-        int tab[] = new int[5];
-
-        for (int x=0; x<5;x++)
-        {
-            System.out.println("\nPodaj liczbę: ");
-            int liczba = scan.nextInt();
-
-            tab[x]= liczba;
+        /* Switch case często używany jest z pętlą, gdzie case-y działają jak else if() */
+        String text = "ooooozjoonoxoooozoooooooooozoxooooopnpppoooiiooooomnzooooxoqoojoozoootyoooozoooxoooozooooxooooooojoooopxoooonnmooo";
+        int[] tablica = {0, 0, 0, 0, 0, 0};
+        /* toCharArray() - metoda zamienia String na tablicę char[] */
+        for (char zmiennaChar : text.toCharArray()) {
+            switch (zmiennaChar) {
+                case 'o':
+                    ++tablica[0];
+                    break;
+                case 'p':
+                    ++tablica[1];
+                    break;
+                case 'x':
+                    ++tablica[2];
+                    break;
+                case 'z':
+                    ++tablica[3];
+                    break;
+                case 'q':
+                    ++tablica[4];
+                    break;
+                default:
+                    ++tablica[5];
+            }
         }
+        System.out.printf("Litera występuje: \n");
+        System.out.println("o: " + tablica[0]);
+        System.out.println("p: " + tablica[1]);
+        System.out.println("x: " + tablica[2]);
+        System.out.println("z: " + tablica[3]);
+        System.out.println("q: " + tablica[4]);
+        System.out.println("suma innych liter: " + tablica[5]);
 
-        for (int z : tab)
-        {
-            System.out.println(z + 11);
-        }
     }
 }
+
+
