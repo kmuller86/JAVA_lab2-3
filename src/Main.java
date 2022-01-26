@@ -4,40 +4,66 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /* ćw.2 pętle for */
+        /* cw.4  */
 
-        /* zad.1 Napisz program który będzie iterował od 100 do 0,
-         *  i wyświetlał liczby które są podzielne przez ostatnią cyfrę waszego indeksu
-         * (jesli tą liczbą jest 0 to przez 2 ostatnie) */
-        System.out.println("Zadanie 1: ");
+        /* zad.1 napisać 3 pętle for i użyc:
+        a) w pierwszej pętli break
+        b) w drugiej pętli continue
+        c) w trzeciej pętli return
+        */
 
-        int ostatniaCyfraIndexu =5;
 
-        for (int i= 100; i>0; i--)
+        Scanner scan = new Scanner(System.in);
+        //pętla a) break
+        for (int i=10; i>0; i--)
         {
-            System.out.print(i%ostatniaCyfraIndexu==0 ? "\nLiczba " + i + " jest podzielna przez ostatnią cyfrę indexu (czyli 5)" : "");
+            System.out.println("\nIle to jest 2+2? Liczba prób " + i);
+            int odp= scan.nextInt();
+         if(odp==4){
+             System.out.println("Dobra odpowiedź!");
+             break;
+         }
+            System.out.println("Zła odpowiedź");
         }
 
-        /* zad.2 Napisz program który będzie uzupełniał tablicę 5-cio elementową int[] liczbami
-         * wprowadzanymi z klawiatury (użyć klasy Scanner), a następnie będzie wyświetlał elementy tablicy
-         * za pomocą pętli forEach powiększone o 11 */
-
-        System.out.println("\n\nZadanie 2: ");
-
-        Scanner scan  = new Scanner(System.in);
-        int tab[] = new int[5];
-
-        for (int x=0; x<5;x++)
+        //pętla b) continue
+        for (int i=3; i>0; i--)
         {
-            System.out.println("\nPodaj liczbę: ");
-            int liczba = scan.nextInt();
-
-            tab[x]= liczba;
+            System.out.println("\nIle to jest 2+ " + i + "?");
+            int odp= scan.nextInt();
+            if(odp==2+i){
+                System.out.println("Dobra odpowiedź!");
+                continue;
+            }
+            System.out.println("Zła odpowiedź");
         }
 
-        for (int z : tab)
-        {
-            System.out.println(z + 11);
-        }
+
+
+        //pętla c) return
+
+        System.out.println(metoda());
     }
-}
+    public static String metoda()
+    {
+        Scanner scan = new Scanner(System.in);
+
+
+        String dobraOdpowiedz ="Dobra odpowiedź! Wygrałeś! :)";
+        String przegrana = "Koniec gry. Przegrałeś.";
+
+        for (int i=3; i>=0; i--)
+        {
+            System.out.println("\nIle to jest 10+5?");
+            int answer= scan.nextInt();
+
+            if(answer==15){
+
+                return dobraOdpowiedz;
+            }
+            else
+            {
+                System.out.println("Zła odpowiedź. Pozostałych prób: " + i);;}
+        }
+        return przegrana;
+    }  }
