@@ -23,6 +23,8 @@ public class Main {
 
         //Nie zrozumiałem czy wartosci z listy maja byc zwierzetami, czy dowolnie wpisanymi przez uzytkownika wartosciami,
         //wiec zrobilem dwie listy.
+        
+        /* miały być zwierzęta wprowadzane z klawiatury, ale ogolnie jest ok */
 
         //ZADANIE a)
         Scanner scan = new Scanner(System.in);
